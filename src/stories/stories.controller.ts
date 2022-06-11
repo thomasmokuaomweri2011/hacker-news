@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Render } from '@nestjs/common';
 import { StoriesService } from './stories.service';
 
 @Controller('stories')
@@ -6,6 +6,7 @@ export class StoriesController {
   constructor(private readonly storiesService: StoriesService) {}
 
   @Get('25')
+  @Render('index')
   getWordsFromLast25Stories() {
     return this.storiesService.getWordsFrom25Stories();
   }

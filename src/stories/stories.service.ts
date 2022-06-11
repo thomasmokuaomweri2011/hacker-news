@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { filter, map } from 'rxjs';
+import { map, tap } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class StoriesService {
   constructor(private httpService: HttpService) {}
   getWordsFrom25Stories() {
-    return this.httpService
+    const response = this.httpService
       .get(`https://hacker-news.firebaseio.com/v0/newstories.json`)
-      .pipe(filter((response) => 1 == 1))
       .pipe(map((response) => response.data));
+
+    return { response: response};
   }
 
   getWordsFromLastWeekStories() {
