@@ -15,8 +15,8 @@ describe('StoriesController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(storiesController.getWordsFrom25Stories()).toBe('Hello World!');
+    it('should return "Titles"', () => {
+      expect(storiesController.getWordsFromLast25Stories()).toBe('');
     });
   });
 });

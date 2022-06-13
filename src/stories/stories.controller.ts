@@ -12,11 +12,13 @@ export class StoriesController {
   }
 
   @Get('last-week')
+  @Render('index')
   getWordsFromLastWeekStories() {
     return this.storiesService.getWordsFromLastWeekStories();
   }
 
   @Get('600')
+  @Render('index')
   getWordsFrom600Stories() {
     return this.storiesService.getWordsFrom600Stories();
   }
